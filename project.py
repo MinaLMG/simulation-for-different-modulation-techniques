@@ -53,27 +53,23 @@ N = pow(10, 4)
 x_values = np.linspace(0, T, N)
 y_values = m(x_values)
 fig1, ax1 = plt.subplots()
-# plt.figure(1)
 plt.plot(x_values, y_values, label="m(t)")
 plt.title("the original signal in time domain")
 plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
 plt.tight_layout()
-# plt .show()
 plt.savefig('original_time.png')
 ######### large carrier #############
 
 y_values_AM_DSB_LC = AM_DSB_LC(x_values)
 fig2, ax2 = plt.subplots()
-# plt.figure(2)
 plt.plot(x_values, y_values_AM_DSB_LC, label="(m(t)+5)cos(wct)")
 plt.title("large carrier in time domain")
 plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
 plt.tight_layout()
-# plt .show()
 plt.savefig('DSBLC_time.png')
 
 ######### suppressed carrier #############
@@ -86,7 +82,6 @@ plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
 plt.tight_layout()
-# plt .show()
 plt.savefig('DSBSC_time.png')
 
 ######### frequency modulation #############
@@ -99,7 +94,6 @@ plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
 plt.tight_layout()
-# plt .show()
 plt.savefig('FM_time.png')
 
 ######### phase modulation #############
@@ -112,7 +106,6 @@ plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
 plt.tight_layout()
-# plt .show()
 plt.savefig('PM_time.png')
 
 ######### single side band modulation #############
@@ -124,7 +117,6 @@ plt.title("single side band in time domain")
 plt.xlabel("time (s)")
 plt.ylabel("amplitude (v)")
 plt.legend()
-# plt .show()
 plt.tight_layout()
 plt.savefig('SSB_time.png')
 
@@ -132,8 +124,8 @@ plt.savefig('SSB_time.png')
 # ########### frequency part #############
 
 # ########### original signal ############
-figf7, axf7 = plt.subplots()
 
+figf7, axf7 = plt.subplots()
 sig_fft = fft(y_values)
 amplitude1= np.abs(sig_fft)[:100]/10000
 power=amplitude1**2
@@ -143,30 +135,16 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
 plt.title("the original signal in frequency domain")
 plt.xlabel("frequency in KHz")
-# plt.semilogy(xf[1:N//2], 2.0/N * np.abs(ywf[1:N//2]), '-r')
 plt.legend('FFT original signal')
-# plt.show()
 plt.tight_layout()
 plt.savefig('original_frequency.png')
 
 # ######### large carrier #############
 
 figf8, axf8 = plt.subplots()
-# w = np.blackman(N)
 
 sig_fft = fft(y_values_AM_DSB_LC)
 amplitude1= np.abs(sig_fft)[:200]/10000
@@ -177,28 +155,15 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
 plt.title("double side band large carrier in frequency domain")
 plt.legend('FFT large carrier')
-# plt.show()
 plt.tight_layout()
 plt.savefig('DSBLC_frequency.png')
 
 # ######### suppressed carrier #############
 
 figf9, axf9 = plt.subplots()
-# w = np.blackman(N)
 sig_fft = fft(y_values_AM_DSB_SC)
 amplitude1= np.abs(sig_fft)[:200]/10000
 power=amplitude1**2
@@ -208,29 +173,15 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
-
 plt.title("double side band suppressed carrier in frequency domain")
 plt.legend('FFT suppressed carrier')
-# plt.show()
 plt.tight_layout()
 plt.savefig('DSBSC_frequency.png')
 
 # ######### frequency modulation #############
-
+ 
 figf10, axf10 = plt.subplots()
-
 sig_fft = fft(y_values_FM)
 amplitude1= np.abs(sig_fft)[:200]/10000
 power=amplitude1**2
@@ -240,28 +191,15 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
 plt.title("frequeency modulation in frequency domain")
 plt.legend('FFT frequency modulation')
-# plt.show()
 plt.tight_layout()
 plt.savefig('FM_frequency.png')
 
 # ######### phase modulation #############
 
 figf11, axf11 = plt.subplots()
-
 sig_fft = fft(y_values_PM)
 amplitude1= np.abs(sig_fft)[:200]/10000
 power=amplitude1**2
@@ -271,28 +209,15 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
 plt.title("phase modulation in frequency domain")
 plt.legend('FFT phase modulation')
-# plt.show()
 plt.tight_layout()
 plt.savefig('PM_frequency.png')
 
 # ######### single side band modulation #############
 
 figf12, axf12 = plt.subplots()
-
 sig_fft = fft(y_values_AM_SSB_SC)
 amplitude1= np.abs(sig_fft)[:200]/10000
 power=amplitude1**2
@@ -302,17 +227,6 @@ amplitude2=amplitude1[::-1]
 amplitude =np.append(amplitude2,amplitude1)
 sampling_frequency2=-1*sampling_frequency1[::-1]
 sampling_frequency=np.append(sampling_frequency2,sampling_frequency1)
-# yf1 = fft(y_values)
-# xf1 = fftfreq(N, T)[:N//2]
-# # xf1 =xf1[1:N//2]
-# xf2 = xf1[::-1]
-# xf2 = -1*xf2
-# xf = np.append(xf2, xf1)
-
-# freq1_val = 2.0/N * np.abs(yf1[0:N//2])
-# freq2_val = freq1_val[::-1]
-# freq_val = np.append(freq2_val, freq1_val)
-
 plt.plot(sampling_frequency,amplitude )
 plt.title("single side band in frequency domain")
 plt.legend('FFT single side band modulation')
